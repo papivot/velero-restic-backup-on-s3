@@ -145,3 +145,9 @@ spec:
       containers:
  ...
  ```
+ 
+ * TO validate - 
+ 
+ ```
+ kubectl -n velero get podvolumebackups -o yaml
+ ```
