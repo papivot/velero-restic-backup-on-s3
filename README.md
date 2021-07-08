@@ -1,6 +1,6 @@
-# Leveraging Restic backup and Velero on a S3 compatiable storage
+# Leveraging Restic backup and Velero on an S3 compatible storage
 ---
-### Setting up Minio as a S3 ompatiable storage
+### Setting up Minio as an S3 compatible storage
 1. Download and configure Minio
 
 ```shell
@@ -118,7 +118,7 @@ data:
 ```
 
 ### Backup and restore cluster objects (including volumes) with velero
-To enable velero to backup PV, (prior to v1.5), the relevent pods that have PV and PVCs attached needs to be properly annotated. See Example 
+To enable velero to backup PV (before v1.5), the relevant pods with PV and PVCs attached need to be properly annotated. See Example 
 
 ```
 $ kubectl -n wordpress annotate pod/wordpress-mysql-55f899496f-wrhd9 backup.velero.io/backup-volumes=mysql-persistent-storage
