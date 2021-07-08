@@ -117,5 +117,31 @@ data:
   memLimit: 128Mi
 ```
 
+### Backup and restore cluster objects (including volumes) with velero
+To enable velero to backup PV, (prior to v1.5), the relevent pods that have PV and PVCs attached needs to be properly annotated. See Example 
 
+```
+$ kubectl -n wordpress annotate pod/wordpress-mysql-55f899496f-wrhd9 backup.velero.io/backup-volumes=mysql-persistent-storage
+```
 
+or 
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+...
+spec:
+  selector:
+    matchLabels:
+      ...
+  template:
+    metadata:
+      annotations:
+        backup.velero.io/backup-volumes: mysql-persistent-storage
+      labels:
+        ...
+    spec:
+      containers:
+ ...
+ ```
